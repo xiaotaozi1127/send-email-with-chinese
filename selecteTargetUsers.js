@@ -20,7 +20,7 @@ console.log("--------------------------------");
 
 count = 0;
 do {
-  let random1 = getRandomInt(30, 100);
+  let random1 = getRandomInt(31, 100);
   console.log(random1);
   if(matchCondition(sorted[random1])) {
     selected.push(sorted[random1]);
@@ -32,7 +32,7 @@ console.log("--------------------------------");
 
 count = 0;
 do {
-  let random1 = getRandomInt(100, 400);
+  let random1 = getRandomInt(101, 400);
   console.log(random1);
   if(matchCondition(sorted[random1])) {
     selected.push(sorted[random1]);
@@ -44,7 +44,7 @@ console.log("--------------------------------");
 
 count = 0;
 do {
-  let random1 = getRandomInt(400, 700);
+  let random1 = getRandomInt(401, 700);
   console.log(random1);
   if(matchCondition(sorted[random1])) {
     selected.push(sorted[random1]);
@@ -56,7 +56,7 @@ console.log("--------------------------------");
 
 count = 0;
 do {
-  let random1 = getRandomInt(700, 1000);
+  let random1 = getRandomInt(701, 1000);
   console.log(random1);
   if(matchCondition(sorted[random1])) {
     selected.push(sorted[random1]);
@@ -68,7 +68,7 @@ console.log("--------------------------------");
 
 count = 0;
 do {
-  let random1 = getRandomInt(1000, 1500);
+  let random1 = getRandomInt(1001, 1500);
   console.log(random1);
   if(matchCondition(sorted[random1])) {
     selected.push(sorted[random1]);
@@ -84,7 +84,7 @@ function getRandomInt(min, max) {
 }
 
 function matchCondition(item) {
-  return item.email && (item.company == null ||
+  return item.email && (item.email.toLowerCase().indexOf("thoughtworks") == -1) && (item.company == null ||
     item.company.toLowerCase().indexOf("thoughtworks") == -1);
 }
 
