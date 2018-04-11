@@ -9,11 +9,16 @@ chineseMail.config.config126Mail({
 });
 
 console.log('Chinese mail send mail by 126 start...');
-chineseMail.sendMailBy126(
-  'xiaotaozi1127@126.com',
-  'Thanks taohui',
-  '<p>Come on</p>',
-  function (res) {
-    console.log(res)
-    console.log('Chinese mail send mail by 126 end...');
-  });
+
+items.forEach(item => {
+  let receiver = item.email;
+
+  chineseMail.sendMailBy126(
+    receiver,
+    'Thanks taohui',
+    '<p>Come on</p>',
+    function (res) {
+      console.log(res)
+      console.log('Chinese mail send mail by 126 end...');
+    });
+})
