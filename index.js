@@ -14,17 +14,10 @@ let smtpConfig = {
 }
 
 var smtpTransport = nodemailer.createTransport(smtpConfig);
-smtpTransport.verify(function(error, success) {
-  if (error) {
-    console.log("error", error);
-  } else {
-    console.log('Server is ready to take our messages');
-  }
-});
 
 let receiver = 'xiaotaozi1127@126.com';
 let username = 'xiaotaozi1127';
-
+let unsubscribe = 'https://tjapi.twer.vip/unsubscribe?email=' + receiver;
 let message = {
   from: 'ThoughtWorker <twer_vip@126.com>',
   to: receiver,
@@ -37,7 +30,7 @@ let message = {
   '        <p style="margin-top: 50px">目前公司处于快速发展阶段，在武汉有Web前端开发，后端开发（语言不限），Android/iOS开发，测试工程师等职位空缺。在国内其他城市也开放有大量招聘职位。</p>\n' +
   '        <p>如果您对我们公司感兴趣，欢迎关注公众号 <b>ThoughtJobs</b> ，我们会为您定制属于你的ThoughtWorks之旅。</p>\n' +
   '        <img src="https://mp.weixin.qq.com/mp/qrcode?scene=10000004&size=102&__biz=MzI3OTE0NDk3MA==&mid=502535419&idx=1&sn=62b858517cb3b261bd049f9f052b896b&send_time=1523341237" alt="">\n' +
-  '        <p>不想收到类似邮件，可<a>取消关注</a>。</p>'
+  '        <p>不想收到类似邮件，可<a href="' + unsubscribe + '">取消关注</a>。</p>'
 };
 
 smtpTransport.sendMail(message, (err, info) => {
@@ -52,6 +45,8 @@ smtpTransport.sendMail(message, (err, info) => {
 // items.forEach(item => {
 //   let receiver = item.email;
 //   let username = item.username;
+//   let unsubscribe = 'https://tjapi.twer.vip/unsubscribe?email=' + receiver;
+
 //   console.log('receiver', receiver);
 //   console.log('username', username);
 //
@@ -67,7 +62,7 @@ smtpTransport.sendMail(message, (err, info) => {
 //     '        <p style="margin-top: 50px">目前公司处于快速发展阶段，在武汉有Web前端开发，后端开发（语言不限），Android/iOS开发，测试工程师等职位空缺。在国内其他城市也开放有大量招聘职位。</p>\n' +
 //     '        <p>如果您对我们公司感兴趣，欢迎关注公众号 <b>ThoughtJobs</b> ，我们会为您定制属于你的ThoughtWorks之旅。</p>\n' +
 //     '        <img src="https://mp.weixin.qq.com/mp/qrcode?scene=10000004&size=102&__biz=MzI3OTE0NDk3MA==&mid=502535419&idx=1&sn=62b858517cb3b261bd049f9f052b896b&send_time=1523341237" alt="">\n' +
-//     '        <p>不想收到类似邮件，可<a>取消关注</a>。</p>'
+//     '        <p>不想收到类似邮件，可<a href="' + unsubscribe + '">取消关注</a>。</p>'
 //   };
 //
 //   smtpTransport.sendMail(message, (err, info) => {
