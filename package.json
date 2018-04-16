@@ -9,6 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "chinese-mail": "^0.2.3"
+    "nodemailer": "^4.6.4"
   }
 }
