@@ -84,8 +84,9 @@ function getRandomInt(min, max) {
 }
 
 function matchCondition(item) {
-  return item.email && (item.email.toLowerCase().indexOf("thoughtworks") == -1) && (item.company == null ||
-    item.company.toLowerCase().indexOf("thoughtworks") == -1);
+  return item.email && (item.email.toLowerCase().indexOf("thoughtworks") == -1) &&
+    (item.company == null || item.company.toLowerCase().indexOf("thoughtworks") == -1) &&
+    selected.indexOf(item) == -1;
 }
 
 fs.writeFile ("selected-items.json", JSON.stringify(selected), function(err) {
